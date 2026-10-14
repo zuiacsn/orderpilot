@@ -1,0 +1,14 @@
+# 显式启用 mysql profile 后，数据源与数据库健康检查生效。
+# 密码从进程环境读取；勿将真实凭据写入受 Git 跟踪的文件。
+spring:
+  datasource:
+    url: jdbc:mysql://${DB_HOST:127.0.0.1}:${DB_PORT:3306}/${DB_NAME:orderpilot}?useUnicode=true&characterEncoding=UTF-8&connectionTimeZone=Asia/Shanghai
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      pool-name: OrderPilotPool
+      maximum-pool-size: 5
+      minimum-idle: 1
+      connection-timeout: 5000
+      validation-timeout: 3000

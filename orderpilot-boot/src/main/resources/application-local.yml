@@ -1,0 +1,5 @@
+# 默认骨架运行模式：可验证 HTTP 服务，不创建数据源。
+spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration

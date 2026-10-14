@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: orderpilot
+  profiles:
+    default: local
+  mvc:
+    problemdetails:
+      enabled: true
+  jackson:
+    time-zone: Asia/Shanghai
+  sql:
+    init:
+      mode: never
+
+server:
+  address: ${SERVER_ADDRESS:127.0.0.1}
+  port: ${SERVER_PORT:8080}
+  shutdown: graceful
+  error:
+    include-message: never
+    include-stacktrace: never
+    include-binding-errors: never
+    include-exception: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: never
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    name: OrderPilot
+    version: '@project.version@'
+    stage: bootstrap

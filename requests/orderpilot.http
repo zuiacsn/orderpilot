@@ -1,0 +1,13 @@
+@baseUrl = http://localhost:8080
+
+### 健康检查：local 模式只说明应用可用；mysql 模式同时检查数据库
+GET {{baseUrl}}/actuator/health
+
+### 框架信息：不是登录或业务功能
+GET {{baseUrl}}/api/system/info
+
+### 应用构建信息
+GET {{baseUrl}}/actuator/info
+
+### 不存在的路由应返回 404
+GET {{baseUrl}}/api/not-found
